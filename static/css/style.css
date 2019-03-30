@@ -122,7 +122,7 @@ aside {
   color: white;
   box-shadow: 0 0 3px black;
   text-align: center;
-  padding-top: 8%;
+  padding-top: 30px;
   background-size: cover;
 }
 
@@ -157,7 +157,7 @@ aside > h2 {
 .social
 {
   display: inline-block;
-  margin-top: 40px;
+  /*margin-top: 40px;*/
 }
 
 .nav
@@ -166,7 +166,8 @@ aside > h2 {
   margin-left: -30px;
   margin-right: -30px;
   border: 1px solid #328cc7;
-  margin-top: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .nav > ul > li
@@ -252,3 +253,37 @@ aside > h2 {
 img {
   max-width: 100%;
 }
+
+
+/*----------TagsCloud-----------*/
+
+ul.tagcloud {
+  list-style: none;
+    padding: 0;
+}
+
+ul.tagcloud li {
+    display: inline-block;
+}
+
+li.tag-1 {
+    font-size: 150%;
+}
+
+li.tag-2 {
+    font-size: 130%;
+}
+
+li.tag-3 {
+    font-size: 115%;
+}
+
+li.tag-4 {
+    font-size: 100%;
+}
+
+ul.tagcloud .list-group-item span.badge {
+    background-color: grey;
+    color: white;
+}
+

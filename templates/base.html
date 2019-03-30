@@ -41,12 +41,28 @@
 <body>
 <!-- Sidebar -->
 <aside>
-    <!--<center><a href="{{ SITEURL }}"><img id="avatar" src="{{ AVATAR }}"></a></center>-->
+    <center><a href="{{ SITEURL }}"><img id="avatar" src="{{ AVATAR }}"></a></center>
     <h1>{{ SITENAME }}</h1>
     {% if SIDEBAR_DIGEST %}
         <p>{{ SIDEBAR_DIGEST }}</p>
     {% endif %}
-    <br>
+
+    <p class="social">
+        {% if SOCIAL %}
+            {% for name, link in SOCIAL %}
+                <a href="{{ link }}" target="_blank"><img
+                        src="{{ SITEURL }}/theme/images/icons/{{ name|lower }}.png"></a>
+            {% endfor %}
+        {% endif %}
+        {% if FEED_ALL_ATOM %}
+            <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" rel="alternate">
+                <img src="{{ SITEURL }}/theme/images/icons/rss.png"></a>
+        {% endif %}
+        {% if FEED_ALL_RSS %}
+            <a href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" rel="alternate">
+                <img src="{{ SITEURL }}/theme/images/icons/rss.png"></a>
+        {% endif %}
+    </p>
 
     {% if TWITTER_USERNAME %}
         <a class="twitter-follow-button"
@@ -86,23 +102,6 @@
         </ul>
     </nav>
 
-    <p class="social">
-        {% if SOCIAL %}
-            {% for name, link in SOCIAL %}
-                <a href="{{ link }}" target="_blank"><img
-                        src="{{ SITEURL }}/theme/images/icons/{{ name|lower }}.png"></a>
-            {% endfor %}
-        {% endif %}
-        {% if FEED_ALL_ATOM %}
-            <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" rel="alternate">
-                <img src="{{ SITEURL }}/theme/images/icons/rss.png"></a>
-        {% endif %}
-        {% if FEED_ALL_RSS %}
-            <a href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" rel="alternate">
-                <img src="{{ SITEURL }}/theme/images/icons/rss.png"></a>
-        {% endif %}
-    </p>
-
     {% if DISPLAY_CATEGORIES_ON_MENU and categories %}
         <h2>Categories</h2>
         <ul class="navbar">
@@ -111,6 +110,24 @@
                         href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
             {% endfor %}
         </ul>
+    {% endif %}
+
+    {% if 'tag_cloud' in PLUGINS %}
+    {% if DISPLAY_TAGS_ON_MENU and tags %}
+        <h2>Tags</h2>
+        <ul class="tagcloud">
+            {% for tag in tag_cloud %}
+                <li class="tag-{{ tag.1 }}">
+                    <a href="{{ SITEURL }}/{{ tag.0.url }}">
+                    {{ tag.0 }}
+                        {% if TAG_CLOUD_BADGE %}
+                            <span class="badge">({{ tag.2 }})</span>
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     {% endif %}
 
     {% if LINKS %}
