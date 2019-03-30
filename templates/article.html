@@ -30,11 +30,11 @@
                 <div><span>Tags : </span>
                     {% if article.tags %}
                         {% for tag in article.tags %}
-                            <span><a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }}, </a></span>
+                            <span><a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }}</a>, </span>
                         {% endfor %}
                     {% endif %}
                 </div>
-
+                <br>
                 <div class="entry-social">
                     <span class="twitter"><a target="_blank" rel="nofollow"
                                              onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"
