@@ -7,7 +7,7 @@ html {
 /* Titles */
 h1 { text-transform: uppercase }
 h1, h2 { 
-	font-weight: normal; 
+  font-weight: normal; 
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -272,20 +272,24 @@ ul.tagcloud li {
     display: inline-block;
 }
 
+li.tag-0 {
+    font-size: 21px;
+}
+
 li.tag-1 {
-    font-size: 150%;
+    font-size: 19px;
 }
 
 li.tag-2 {
-    font-size: 130%;
+    font-size: 17px;
 }
 
 li.tag-3 {
-    font-size: 115%;
+    font-size: 15px;
 }
 
 li.tag-4 {
-    font-size: 100%;
+    font-size: 13px;
 }
 
 ul.tagcloud .list-group-item span.badge {
