@@ -9,7 +9,11 @@
         {% endif %}
         <b>{{ articles_page.number }}</b> / {{ articles_paginator.num_pages }}
         {% if articles_page.has_next() %}
-            <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html"><b>&rarr;</b></a><a href="{{ SITEURL }}/{{ page_name }}{{ articles_paginator.num_pages }}.html"> <b>&rsaquo;</b></a>
+            {% if articles_page.next_page_number() == articles_paginator.num_pages %}
+                <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html"><b>&rarr;</b></a>
+            {% else %}
+                <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html"><b>&rarr;</b></a><a href="{{ SITEURL }}/{{ page_name }}{{ articles_paginator.num_pages }}.html"> <b>&rsaquo;</b></a>
+            {% endif %}
         {% endif %}
     </p>
 {% endif %}
