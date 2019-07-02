@@ -2,14 +2,14 @@
     <p class="paginator">
         {% if articles_page.has_previous() %}
             {% if articles_page.previous_page_number() == 1 %}
-                <a href="{{ SITEURL }}/{{ page_name }}.html">&larr;</a>
+                <a href="{{ SITEURL }}/{{ page_name }}.html"><b>&larr;</b></a>
             {% else %}
-                <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html"><b>&larr;</b></a>
+                <a href="{{ SITEURL }}/{{ page_name }}.html"><b>&lsaquo; </b></a><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html"><b>&larr;</b></a>
             {% endif %}
         {% endif %}
         <b>{{ articles_page.number }}</b> / {{ articles_paginator.num_pages }}
         {% if articles_page.has_next() %}
-            <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html"><b>&rarr;</b></a>
+            <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html"><b>&rarr;</b></a><a href="{{ SITEURL }}/{{ page_name }}{{ articles_paginator.num_pages }}.html"> <b>&rsaquo;</b></a>
         {% endif %}
     </p>
 {% endif %}
